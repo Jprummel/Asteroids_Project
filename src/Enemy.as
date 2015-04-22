@@ -10,6 +10,7 @@ package
 		
 		public function Enemy():void
 		{
+			//Add enemy animation
 			
 		}
 		
