@@ -12,13 +12,25 @@ package
 	public class Player extends Unit
 	{
 		private var rect:Shape;
+		private var speed:int = 10;
 		
 		public function Player():void
 		{
-			this.addEventListener(Event.ENTER_FRAME, update);
-			this.addEventListener(KeyboardEvent.KEY_DOWN, playerControll);
+			
+			addEventListener(Event.ADDED_TO_STAGE, init);
+		
+		}
+		
+		private function init(e:Event):void 
+		{
+			removeEventListener(Event.ADDED_TO_STAGE, init);
+			addEventListener(Event.ENTER_FRAME, update);
+			stage.addEventListener(KeyboardEvent.KEY_DOWN, playerControll);
 			//Import animation here
 			rect = new Shape;
+			rect.graphics.beginFill(0x000000);
+			rect.graphics.drawRect(45, 45, 60,60);
+			rect.graphics.endFill();
 			rect.graphics.beginFill(0xFF0000);
 			rect.graphics.drawRect(50, 50, 50, 50);
 			rect.graphics.endFill();
@@ -31,29 +43,31 @@ package
 		
 		public function update(e:Event):void 
 		{
+			//rect.x += speed;
 			playerControll;
 		}
 		
 		public function playerControll(e:KeyboardEvent):void 
-		{
+		{			
 			if (e.keyCode == 87)
 			{
-				rect.y -= 10;
+				rect.y -= speed;
 			}
 			
 			if (e.keyCode == 65)
 			{
-				rect.x -= 10;
+				rect.x -= speed ;
+				//rect.rotationZ -= speed;
 			}
 			
 			if (e.keyCode == 83)
 			{
-				rect.y += 10;
+				rect.y += speed;
 			}
 			
 			if (e.keyCode == 68)
 			{
-				rect.x += 10;
+				rect.x += speed;
 			}
 		}
 		
