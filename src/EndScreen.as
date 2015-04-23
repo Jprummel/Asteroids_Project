@@ -12,6 +12,16 @@ package
 			
 		}
 		
+		private function retryButton():void
+		{
+			
+		}
+		
+		private function backToMenu():void
+		{
+			
+		}
+		
 	}
 
 }

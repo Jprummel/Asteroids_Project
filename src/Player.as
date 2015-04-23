@@ -11,14 +11,12 @@ package
 	 */
 	public class Player extends Unit
 	{
-		private var rect:Shape;
+		private var player:Shape;
 		private var speed:int = 10;
 		
 		public function Player():void
-		{
-			
+		{			
 			addEventListener(Event.ADDED_TO_STAGE, init);
-		
 		}
 		
 		private function init(e:Event):void 
@@ -26,48 +24,52 @@ package
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			addEventListener(Event.ENTER_FRAME, update);
 			stage.addEventListener(KeyboardEvent.KEY_DOWN, playerControll);
-			//Import animation here
-			rect = new Shape;
-			rect.graphics.beginFill(0x000000);
-			rect.graphics.drawRect(45, 45, 60,60);
-			rect.graphics.endFill();
-			rect.graphics.beginFill(0xFF0000);
-			rect.graphics.drawRect(50, 50, 50, 50);
-			rect.graphics.endFill();
-			addChild(rect);
+			
+			//Import animation here (placeholder for now)
+			player = new Shape;
+			player.graphics.beginFill(0xFFFFFF);
+			player.graphics.drawRect(45, 45, 60,60);
+			player.graphics.endFill();
+			player.graphics.beginFill(0xFF0000);
+			player.graphics.drawRect(50, 50, 50, 50);
+			player.graphics.endFill();
+			addChild(player);
 			
 			//Starting lives
-			maxLives = 5;
-			liveStart();
+			playerLiveStart();
+			trace(lives + " Player");
 		}
 		
-		public function update(e:Event):void 
+		public function update(e:Event):void
 		{
-			//rect.x += speed;
-			playerControll;
+			
+			death();
+			if (player.x < -stage.stageWidth)
+			{
+				player.x = stage.stageWidth;
+			}
 		}
 		
 		public function playerControll(e:KeyboardEvent):void 
 		{			
 			if (e.keyCode == 87)
 			{
-				rect.y -= speed;
+				player.y -= speed;
 			}
 			
 			if (e.keyCode == 65)
 			{
-				rect.x -= speed ;
-				//rect.rotationZ -= speed;
+				player.x -= speed ;
 			}
 			
 			if (e.keyCode == 83)
 			{
-				rect.y += speed;
+				player.y += speed;
 			}
 			
 			if (e.keyCode == 68)
 			{
-				rect.x += speed;
+				player.x += speed;
 			}
 		}
 		
@@ -75,9 +77,5 @@ package
 		{
 			
 		}
-		
-		
-		
 	}
-	
 }
