@@ -37,7 +37,7 @@ package
 			movementEnabled = true;
 			
 			//PlayerAnimation
-			_playerAnim = new dragonAnim();
+			_playerAnim = new PlayerModel();
 			_playerAnim.x = stage.stageWidth / 2;
 			_playerAnim.y = stage.stageHeight / 2;
 			_playerAnim.scaleX = 0.7;
