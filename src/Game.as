@@ -42,8 +42,7 @@ package
 		private function update(e:Event):void 
 		{
 			
-		}
-		
+		}		
 	}
 
 }

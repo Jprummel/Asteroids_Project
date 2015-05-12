@@ -52,14 +52,14 @@ package
 		
 		private function aimMouse(e:Event):void 
 		{
-			dx = stage.mouseX - _playerAnim.x;
-			dy = stage.mouseY - _playerAnim.y;
+			dx = mouseX - _playerAnim.x;
+			dy = mouseY - _playerAnim.y;
 			_playerAnim.rotation = (Math.atan2(dy, dx) * 180 / Math.PI);
 		}
 		
 		public function update(e:Event):void
 		{
-			/*_speed = input.y * 5;
+			_speed = input.y * 5;
 			
 			_playerAnim.rotation += input.x * 5;
 			
@@ -68,7 +68,7 @@ package
 			var yMove:Number = Math.sin(radians);
 			
 			_playerAnim.x += xMove * -_speed;
-			_playerAnim.y += yMove * -_speed;*/
+			_playerAnim.y += yMove * -_speed;
 			
 			addEventListener(KeyboardEvent.KEY_DOWN, shoot)
 									
