@@ -1,20 +1,25 @@
 package  
 {
+	import flash.display.Bitmap;
+	import flash.display.Sprite;
 	/**
 	 * ...
 	 * @author Jordi Prummel
 	 */
-	public class Background 
+	public class Background extends Sprite
 	{
-		private var bgImage;
+		[Embed(source="../lib/Background.png")]
+		public var backgroundImage:Class;
+		private var bgImage:Bitmap		
 		
 		public function Background() 
 		{
-			//embed background image here
-			
 			//Add Background
+			bgImage = new backgroundImage;
+			bgImage.x = -300;
+			bgImage.width = 1600;
+			bgImage.height = 800;
+			addChild(bgImage);
 		}
-		
 	}
-
 }

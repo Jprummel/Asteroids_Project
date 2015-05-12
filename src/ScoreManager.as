@@ -19,7 +19,7 @@ package
 		
 		private function update(e:Event):void 
 		{
-			updateScore;
+			updateScore(e);
 		}
 		
 		private function init(e:Event):void 
@@ -31,16 +31,19 @@ package
 			scoreText = new TextField();
 			scoreText.scaleX = 1.5;
 			scoreText.scaleY = 1.5;
-			scoreText.x = 40;
+			scoreText.x = stage.stageWidth;
 			scoreText.y = 20;
 			scoreText.textColor = 0xFFFFFF;
 			scoreText.text = "Score: " + score.toString(); 
 			addChild(scoreText);
 		}
 		
-		private function updateScore():void
+		private function updateScore(e:Event):void
 		{
-			
+			/*if ()
+			{
+				score = score + 25;
+			}*/
 		}
 	}
 }
