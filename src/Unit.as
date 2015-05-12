@@ -2,7 +2,6 @@ package
 {
 	import flash.display.Sprite;
 	import flash.events.Event;
-	import flash.events.KeyboardEvent
 	
 	/**
 	 * ...
@@ -12,7 +11,11 @@ package
 	{
 		public var lives:int;
 		public var maxLives:int;
-		public var movementEnabled:Boolean;
+		public var up: Boolean =  false;
+		public var down: Boolean =  false;
+		public var right: Boolean =  false;
+		public var left: Boolean =  false;
+		public var speed:int = 5;
 		
 		public function Unit():void
 		{
@@ -22,10 +25,7 @@ package
 		private function init(e:Event):void 
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
-			stage.addEventListener(KeyboardEvent.KEY_DOWN, playerMovement);
-			
-			movementEnabled = false;
-			
+			addEventListener(Event.ENTER_FRAME, update);
 		}
 		
 		public function playerLiveStart():void
@@ -54,30 +54,29 @@ package
 			}
 		}
 		
-		public function playerMovement(e:KeyboardEvent):void
+		private function update(e:Event):void 
 		{
-			if (movementEnabled == true)
+			if (up)
 			{
-				if (e.keyCode == 87)
-				{
-					this.y -= 10;
-				}
-			
-				if (e.keyCode == 65)
-				{
-					this.x -= 10 ;
-				}
-			
-				if (e.keyCode == 83)
-				{
-					this.y += 10;
-				}
-			
-				if (e.keyCode == 68)
-				{
-					this.x += 10;
-				}
+				this.y -= speed;
 			}
+			
+			if (down)
+			{
+				this.y += speed;
+			}
+			
+			if (left)
+			{
+				this.x -= speed;
+			}
+			
+			if (right)
+			{
+				this.x += speed;
+			}
+		
+			
 		}
 	}
 	

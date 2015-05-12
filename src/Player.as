@@ -32,16 +32,18 @@ package
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			addEventListener(Event.ENTER_FRAME, update);
 			stage.addEventListener(Event.ENTER_FRAME, aimMouse);
+			stage.addEventListener(KeyboardEvent.KEY_DOWN, playerControll);
+			stage.addEventListener(KeyboardEvent.KEY_UP, onKeyUp);
+			
 			
 			input = new Point();
-			movementEnabled = true;
 			
 			//PlayerAnimation
 			_playerAnim = new PlayerModel();
 			_playerAnim.x = stage.stageWidth / 2;
 			_playerAnim.y = stage.stageHeight / 2;
-			_playerAnim.scaleX = 0.7;
-			_playerAnim.scaleY = 0.7;
+			_playerAnim.scaleX = 0.6;
+			_playerAnim.scaleY = 0.6;
 			addChild(_playerAnim);
 			
 			//Starting lives
@@ -49,6 +51,8 @@ package
 			//playerMovement(KeyboardEvent);
 			trace(lives + " Player");
 		}
+		
+		
 		
 		private function aimMouse(e:Event):void 
 		{
@@ -59,7 +63,7 @@ package
 		
 		public function update(e:Event):void
 		{
-			_speed = input.y * 5;
+			/*_speed = input.y * 5;
 			
 			_playerAnim.rotation += input.x * 5;
 			
@@ -69,11 +73,10 @@ package
 			
 			_playerAnim.x += xMove * -_speed;
 			_playerAnim.y += yMove * -_speed;
+			*/
 			
-			addEventListener(KeyboardEvent.KEY_DOWN, shoot)
-									
 			death();
-			if (_playerAnim .x < -100)
+			if (_playerAnim .x < -stage.stageWidth)
 			{
 				_playerAnim.x = 0;
 			}
@@ -94,17 +97,56 @@ package
 			}
 		}
 		
-		/*public function playerControll():void 
+		public function playerControll(e:KeyboardEvent):void 
 		{			
-			playerMovement;
-		}*/
+			if (e.keyCode == 87)
+				{
+					up = true;
+				}
+			
+				if (e.keyCode == 65)
+				{
+					left = true;
+				}
+			
+				if (e.keyCode == 83)
+				{
+					down = true;
+				}
+			
+				if (e.keyCode == 68)
+				{
+					right = true;
+				}
+		}
 		
-		private function shoot(e:KeyboardEvent):void
+		private function onKeyUp(e:KeyboardEvent):void 
 		{
-			if (e.keyCode == 32)
-			{
+				if (e.keyCode == 87)
+				{
+					up = false;
+				}
+			
+				if (e.keyCode == 65)
+				{
+					left = false;
+				}
+			
+				if (e.keyCode == 83)
+				{
+					down = false;
+				}
+			
+				if (e.keyCode == 68)
+				{
+					right = false;
+				}
+		}
+		
+		private function shoot():void
+		{
 				_attack = new FireAttack;
-			}
+				addChild(_attack);
 		}
 	}
 }
