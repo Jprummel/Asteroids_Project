@@ -35,9 +35,6 @@ package
 			stage.addEventListener(KeyboardEvent.KEY_DOWN, playerControll);
 			stage.addEventListener(KeyboardEvent.KEY_UP, onKeyUp);
 			
-			
-			input = new Point();
-			
 			//PlayerAnimation
 			_playerAnim = new PlayerModel();
 			_playerAnim.x = stage.stageWidth / 2;
@@ -63,22 +60,10 @@ package
 		
 		public function update(e:Event):void
 		{
-			/*_speed = input.y * 5;
-			
-			_playerAnim.rotation += input.x * 5;
-			
-			var radians:Number = _playerAnim.rotation * Math.PI / 180;
-			var xMove:Number =  Math.cos(radians);
-			var yMove:Number = Math.sin(radians);
-			
-			_playerAnim.x += xMove * -_speed;
-			_playerAnim.y += yMove * -_speed;
-			*/
-			
 			death();
-			if (_playerAnim .x < -stage.stageWidth)
+			if (_playerAnim .x < 100)
 			{
-				_playerAnim.x = 0;
+				_playerAnim.x = 200;
 			}
 			
 			if (_playerAnim.x >1000)

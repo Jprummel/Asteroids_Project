@@ -8,7 +8,7 @@ package
 	 */
 	public class Background extends Sprite
 	{
-		[Embed(source="../lib/Background.png")]
+		[Embed(source="../lib/Background.jpg")]
 		public var backgroundImage:Class;
 		private var bgImage:Bitmap		
 		
@@ -16,7 +16,7 @@ package
 		{
 			//Add Background
 			bgImage = new backgroundImage;
-			bgImage.x = -300;
+			bgImage.x = -400;
 			bgImage.width = 1600;
 			bgImage.height = 800;
 			addChild(bgImage);
