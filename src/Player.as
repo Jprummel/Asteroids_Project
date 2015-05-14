@@ -80,7 +80,7 @@ package
 			if (_attacking == true)
 			{
 				shoot();
-			}
+			}			
 			
 			if (_playerAnim.x < 100)
 			{
@@ -146,9 +146,9 @@ package
 		private function shoot():void
 		{
 				_attack = new FireAttack;
-				_attack.x = _playerAnim.x;
-				_attack.y = _playerAnim.y - 60;
 				_attack.rotation = _playerAnim.rotation;
+				_attack.x = _playerAnim.x + 10;
+				_attack.y = _playerAnim.y + _playerAnim.rotation;
 				addChild(_attack);
 		}
 	}

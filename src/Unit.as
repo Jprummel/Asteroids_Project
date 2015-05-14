@@ -9,13 +9,14 @@ package
 	 */
 	public class Unit extends Sprite 
 	{
-		public var lives:int;
-		public var maxLives:int;
-		public var up: Boolean =  false;
-		public var down: Boolean =  false;
-		public var right: Boolean =  false;
-		public var left: Boolean =  false;
-		public var speed:int = 5;
+		public var lives	:int;
+		public var maxLives	:int;
+		
+		public var up		:Boolean =  false;
+		public var down		:Boolean =  false;
+		public var right	:Boolean =  false;
+		public var left		:Boolean =  false;
+		public var speed	:int = 5;
 		
 		public function Unit():void
 		{
@@ -60,24 +61,18 @@ package
 			{
 				this.y -= speed;
 			}
-			
 			if (down)
 			{
 				this.y += speed;
 			}
-			
 			if (left)
 			{
 				this.x -= speed;
 			}
-			
 			if (right)
 			{
 				this.x += speed;
 			}
-		
-			
 		}
 	}
-	
 }
