@@ -6,6 +6,7 @@ package
 	import flash.display.MovieClip;
 	import flash.events.Event;
 	import flash.events.KeyboardEvent;
+	import flash.events.MouseEvent;
 	import flash.geom.Point;
 	/**
 	 * ...
@@ -21,6 +22,8 @@ package
 		private var dy:Number;
 		private var input:Point;
 		
+		private var _attacking:Boolean = false;
+		
 		public function Player():void
 		{			
 			
@@ -34,6 +37,8 @@ package
 			stage.addEventListener(Event.ENTER_FRAME, aimMouse);
 			stage.addEventListener(KeyboardEvent.KEY_DOWN, playerControll);
 			stage.addEventListener(KeyboardEvent.KEY_UP, onKeyUp);
+			stage.addEventListener(MouseEvent.MOUSE_DOWN, onClick);
+			stage.addEventListener(MouseEvent.MOUSE_UP, stopClick);
 			
 			//PlayerAnimation
 			_playerAnim = new PlayerModel();
@@ -49,6 +54,16 @@ package
 			trace(lives + " Player");
 		}
 		
+		private function stopClick(e:MouseEvent):void 
+		{
+			_attacking = false;
+		}
+		
+		private function onClick(e:MouseEvent):void 
+		{
+			_attacking = true;
+		}
+		
 		
 		
 		private function aimMouse(e:Event):void 
@@ -61,7 +76,13 @@ package
 		public function update(e:Event):void
 		{
 			death();
-			if (_playerAnim .x < 100)
+			
+			if (_attacking == true)
+			{
+				shoot();
+			}
+			
+			if (_playerAnim.x < 100)
 			{
 				_playerAnim.x = 200;
 			}
@@ -88,17 +109,14 @@ package
 				{
 					up = true;
 				}
-			
 				if (e.keyCode == 65)
 				{
 					left = true;
 				}
-			
 				if (e.keyCode == 83)
 				{
 					down = true;
 				}
-			
 				if (e.keyCode == 68)
 				{
 					right = true;
@@ -111,17 +129,14 @@ package
 				{
 					up = false;
 				}
-			
 				if (e.keyCode == 65)
 				{
 					left = false;
 				}
-			
 				if (e.keyCode == 83)
 				{
 					down = false;
 				}
-			
 				if (e.keyCode == 68)
 				{
 					right = false;
@@ -131,6 +146,9 @@ package
 		private function shoot():void
 		{
 				_attack = new FireAttack;
+				_attack.x = _playerAnim.x - 10;
+				_attack.y = _playerAnim.y - 200;
+				_attack.rotation = _playerAnim.rotation;
 				addChild(_attack);
 		}
 	}

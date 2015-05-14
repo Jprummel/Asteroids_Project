@@ -12,6 +12,7 @@ package
 		{
 			//Add bullet animation
 			var attack:MovieClip = new FireBreath();
+			addChild(attack);
 		}
 		
 	}
