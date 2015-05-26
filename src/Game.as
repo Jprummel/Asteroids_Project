@@ -33,7 +33,6 @@ package
 			addChild(_player);
 			_enemy = new Enemies;
 			addChild(_enemy);
-			
 			//UI Elements
 			_score = new ScoreManager;
 			addChild(_score);

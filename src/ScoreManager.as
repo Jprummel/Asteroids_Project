@@ -31,7 +31,7 @@ package
 			scoreText = new TextField();
 			scoreText.scaleX = 1.5;
 			scoreText.scaleY = 1.5;
-			scoreText.x = stage.stageWidth;
+			scoreText.x = stage.stageWidth - 100;
 			scoreText.y = 20;
 			scoreText.textColor = 0xFFFFFF;
 			scoreText.text = "Score: " + score.toString(); 

@@ -35,7 +35,7 @@ package
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			
 			enemyLiveStart();
-			trace(lives + " Enemy");
+			trace(enemyLives + " Enemy");
 			
 		}
 		

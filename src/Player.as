@@ -1,13 +1,10 @@
 package 
 {
-	import flash.display.Shader;
-	import flash.display.Shape;
-	import flash.display.Sprite;
-	import flash.display.MovieClip;
-	import flash.events.Event;
-	import flash.events.KeyboardEvent;
-	import flash.events.MouseEvent;
+	import flash.display.*;
+	import flash.events.*;
 	import flash.geom.Point;
+	import flash.utils.*;
+	
 	/**
 	 * ...
 	 * @author Jordi Prummel
@@ -17,6 +14,8 @@ package
 		private var _playerAnim:MovieClip;
 		private var _speed:int;
 		private var _attack:FireAttack;
+		
+		private var timeoutID:uint;
 		
 		private var dx:Number;
 		private var dy:Number;
@@ -38,7 +37,7 @@ package
 			stage.addEventListener(KeyboardEvent.KEY_DOWN, playerControll);
 			stage.addEventListener(KeyboardEvent.KEY_UP, onKeyUp);
 			stage.addEventListener(MouseEvent.MOUSE_DOWN, onClick);
-			stage.addEventListener(MouseEvent.MOUSE_UP, stopClick);
+			//stage.addEventListener(MouseEvent.MOUSE_UP, stopClick);
 			
 			//PlayerAnimation
 			_playerAnim = new PlayerModel();
@@ -51,17 +50,28 @@ package
 			//Starting lives
 			playerLiveStart();
 			//playerMovement(KeyboardEvent);
-			trace(lives + " Player");
+			trace(playerLives + " Player");
 		}
 		
-		private function stopClick(e:MouseEvent):void 
+		/*private function stopClick(e:MouseEvent):void 
 		{
 			_attacking = false;
-		}
+		}*/
 		
 		private function onClick(e:MouseEvent):void 
 		{
-			_attacking = true;
+			
+			if (_attack != null) 
+			{
+				if (!contains(_attack))
+				{
+					_attacking = true; 
+				} 
+			}
+			else 
+			{
+				_attacking = true; 
+			}
 		}
 		
 		
@@ -80,6 +90,7 @@ package
 			if (_attacking == true)
 			{
 				shoot();
+				_attacking = false;
 			}			
 			
 			if (_playerAnim.x < 100)
@@ -147,9 +158,16 @@ package
 		{
 				_attack = new FireAttack;
 				_attack.rotation = _playerAnim.rotation;
-				_attack.x = _playerAnim.x + 10;
+				_attack.x = _playerAnim.x;
 				_attack.y = _playerAnim.y + _playerAnim.rotation;
 				addChild(_attack);
+				timeoutID = setTimeout(removeAttack, 1 * 800);
+		}
+		
+		private function removeAttack():void
+		{
+			removeChild(_attack);
+			clearTimeout(timeoutID);
 		}
 	}
 }
