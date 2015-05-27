@@ -9,8 +9,8 @@ package
 	 */
 	public class ScoreManager extends Sprite
 	{
-		private var score:int;
-		private var scoreText:TextField;
+		private var score		:int;
+		private var scoreText	:TextField;
 		
 		public function ScoreManager() 
 		{

@@ -11,17 +11,16 @@ package
 	 */
 	public class Player extends Unit
 	{
-		private var _playerAnim:MovieClip;
-		private var _speed:int;
-		private var _attack:FireAttack;
+		private var _playerAnim	:MovieClip;
+		private var _speed		:int;
+		private var _attack		:FireAttack;
 		
-		private var timeoutID:uint;
+		private var timeoutID	:uint;
 		
-		private var dx:Number;
-		private var dy:Number;
-		private var input:Point;
+		private var dx			:Number;
+		private var dy			:Number;
 		
-		private var _attacking:Boolean = false;
+		private var _attacking	:Boolean = false;
 		
 		public function Player():void
 		{			
@@ -43,8 +42,8 @@ package
 			_playerAnim = new PlayerModel();
 			_playerAnim.x = stage.stageWidth / 2;
 			_playerAnim.y = stage.stageHeight / 2;
-			_playerAnim.scaleX = 0.6;
-			_playerAnim.scaleY = 0.6;
+			_playerAnim.scaleX = 0.5;
+			_playerAnim.scaleY = 0.5;
 			addChild(_playerAnim);
 			
 			//Starting lives
@@ -159,7 +158,7 @@ package
 				_attack = new FireAttack;
 				_attack.rotation = _playerAnim.rotation;
 				_attack.x = _playerAnim.x;
-				_attack.y = _playerAnim.y + _playerAnim.rotation;
+				_attack.y = _playerAnim.y;
 				addChild(_attack);
 				timeoutID = setTimeout(removeAttack, 1 * 800);
 		}

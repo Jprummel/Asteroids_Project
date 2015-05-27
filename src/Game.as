@@ -6,15 +6,18 @@ package
 	
 	/**
 	 * ...
-	 * @author Jordi Prummel, Robbert Leenen, Donovan Nguyen
+	 * @author Jordi Prummel
 	 */
 	public class Game extends Sprite
 	{
-		private var _player:Player;
-		private var _enemy:Enemies;
-		private var _enemies:Array = [];
-		private var _score:ScoreManager;
-		private var _background:Background;
+		private var _player		:Player;
+		private var _enemy		:Enemies;
+		private var _enemies	:Array = [];
+		
+		private var _dragonNest	:DragonNest;
+		
+		private var _score		:ScoreManager;
+		private var _background	:Background;
 		
 		public function Game():void 
 		{
@@ -28,9 +31,11 @@ package
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			
 			_background = new Background;
-			addChild(_background);			
+			addChild(_background);		
+			/*_dragonNest = new DragonNest;
+			addChild(_dragonNest);*/
 			_player = new Player;
-			addChild(_player);
+			addChild(_player);			
 			_enemy = new Enemies;
 			addChild(_enemy);
 			//UI Elements
@@ -40,7 +45,7 @@ package
 		
 		private function update(e:Event):void 
 		{
-			
+			_enemy.EnemyFollow(_player);
 		}		
 	}
 
