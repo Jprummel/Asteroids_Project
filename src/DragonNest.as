@@ -17,15 +17,13 @@ package
 			addEventListener(Event.ADDED_TO_STAGE, init);
 		}
 		
-		private function init(e:Event):void 
+		public function init(e:Event):void 
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			dragonNest = new Shape;
 			dragonNest.graphics.beginFill(0x000000);
 			dragonNest.graphics.drawRect(45, 45, 60,60);
 			dragonNest.graphics.endFill()
-			dragonNest.x = stage.stageWidth / 2;
-			dragonNest.y = stage.stageHeight / 2;
 			addChild(dragonNest);
 		}
 	}

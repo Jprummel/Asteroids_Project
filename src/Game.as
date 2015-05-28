@@ -32,8 +32,10 @@ package
 			
 			_background = new Background;
 			addChild(_background);		
-			/*_dragonNest = new DragonNest;
-			addChild(_dragonNest);*/
+			_dragonNest = new DragonNest;
+			_dragonNest.x = 320;
+			_dragonNest.y = 310;
+			addChild(_dragonNest);
 			_player = new Player;
 			addChild(_player);			
 			_enemy = new Enemies;
@@ -41,11 +43,14 @@ package
 			//UI Elements
 			_score = new ScoreManager;
 			addChild(_score);
+			
+			trace (_dragonNest.x + "Nest X " + _dragonNest.y + "Nest Y ");
+			trace (_enemy.x +"X " + _enemy.y + "Y");
 		}
 		
 		private function update(e:Event):void 
 		{
-			_enemy.EnemyFollow(_player);
+			_enemy.EnemyFollow(_dragonNest);
 		}		
 	}
 
