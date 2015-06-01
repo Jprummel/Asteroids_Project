@@ -2,6 +2,7 @@ package
 {
 	import flash.display.Shape;
 	import flash.events.Event;
+	import flash.geom.Point;
 	
 	/**
 	 * ...
@@ -9,10 +10,11 @@ package
 	 */
 	public class Enemies extends Unit 
 	{
-		private var _enemy1:Shape;
-		private var _enemy2:Shape;
-		private var enemies:Array = [];
-		private var _speed:int;
+		//private var _enemy1	:Shape;
+		private var _enemy1	:Shape;
+		private var _enemy2	:Shape;
+		private var enemies	:Array = [];
+		private var _speed	:int = 10;
 		
 		public function Enemies():void
 		{
@@ -25,9 +27,9 @@ package
 			_enemy1.graphics.beginFill(0xFF0000);
 			_enemy1.graphics.drawRect(50, 50, 50, 50);
 			_enemy1.graphics.endFill();
-			_enemy1.x = 100;
-			_enemy1.y = 100;
 			addChild(_enemy1);
+			
+			trace(_enemy1.x + "X " + _enemy1.y + "Y " + "Enemy Pos");
 		}
 		
 		private function init(e:Event):void 
@@ -39,13 +41,25 @@ package
 			
 		}
 		
-		private function enemyMovement():void
-		{
-			_speed = 10;
-			
-			_enemy1.x -= _speed;
-			_enemy1.y += _speed;
+		public function EnemyFollow(target:DragonNest):void
+		{	
+			if (this.x >= target.x)
+			{
+				this.x -= 1;
+			}
+			else if (this.x <= target.x)
+			{
+				this.x += 1;
+			}
+
+			if (this.y <= target.y)
+			{
+				this.y += 1;
+			}
+			else if (this.y >= target.y)
+			{
+				this.y -= 1;
+			}
 		}
 	}
-	
 }

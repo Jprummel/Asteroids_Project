@@ -63,13 +63,7 @@ package
 			enemyLives = maxLives;
 		}
 		
-		public function death():void
-		{
-			if (this.playerLives < 1)
-			{
-				removeChild(this);
-			}
-		}
+
 		
 		private function update(e:Event):void 
 		{

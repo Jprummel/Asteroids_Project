@@ -84,8 +84,6 @@ package
 		
 		public function update(e:Event):void
 		{
-			death();
-			
 			if (_attacking == true)
 			{
 				shoot();
@@ -153,7 +151,7 @@ package
 				}
 		}
 		
-		private function shoot():void
+		public function shoot():void
 		{
 				_attack = new FireAttack;
 				_attack.rotation = _playerAnim.rotation;

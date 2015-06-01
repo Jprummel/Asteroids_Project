@@ -1,5 +1,6 @@
 package  
 {
+	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	/**
 	 * ...
@@ -7,6 +8,7 @@ package
 	 */
 	public class StartScreen extends Sprite
 	{
+		private var startScreen:MovieClip;
 		
 		public function StartScreen() 
 		{

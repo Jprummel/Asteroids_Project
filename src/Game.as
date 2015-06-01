@@ -11,6 +11,7 @@ package
 	public class Game extends Sprite
 	{
 		private var _player		:Player;
+		private var _attack		:FireAttack;
 		private var _enemy		:Enemies;
 		private var _enemies	:Array = [];
 		
@@ -39,7 +40,11 @@ package
 			_player = new Player;
 			addChild(_player);			
 			_enemy = new Enemies;
+			_enemy.x = 100;
+			_enemy.y = 100;
 			addChild(_enemy);
+			
+			_attack = new FireAttack;
 			//UI Elements
 			_score = new ScoreManager;
 			addChild(_score);
@@ -51,7 +56,26 @@ package
 		private function update(e:Event):void 
 		{
 			_enemy.EnemyFollow(_dragonNest);
-		}		
+			if (_enemy.hitTestObject(_dragonNest))
+			{
+				_enemy.x = 0;
+				_enemy.y = 0;
+				_player.playerLives = _player.playerLives - 1;
+				trace(_player.playerLives);
+			}
+				
+			if (_player.playerLives < 1)
+			{
+				if (stage.contains(_player))
+				{
+				removeChild(_player);
+				}
+			}
+			
+			if (_player.hitTestObject(_enemy))
+			{
+				_enemy.enemyLives = _enemy.enemyLives - 1;
+			}
+		}
 	}
-
 }
