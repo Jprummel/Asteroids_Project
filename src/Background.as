@@ -9,8 +9,8 @@ package
 	public class Background extends Sprite
 	{
 		[Embed(source="../lib/Background.jpg")]
-		public var backgroundImage:Class;
-		private var bgImage:Bitmap		
+		public var backgroundImage	:Class;
+		private var bgImage			:Bitmap		
 		
 		public function Background() 
 		{

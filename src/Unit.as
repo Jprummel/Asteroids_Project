@@ -38,10 +38,12 @@ package
 			maxLives = 3;
 			playerLives = 3;
 			playerLives = maxLives;
-			if (playerLives > maxLives)
+			
+			//For if we implement power ups
+			/*if (playerLives > maxLives)
 			{
 				playerLives = maxLives;
-			}
+			}*/
 		}
 		
 		public function liveUI():void

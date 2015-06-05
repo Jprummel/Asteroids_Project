@@ -52,9 +52,12 @@
   </includeLibraries>
   <!-- SWC Libraries -->
   <libraryPaths>
-    <element path="lib\draakvlieg.swc" />
     <element path="lib\vuuraanval.swc" />
     <element path="lib\Startscherm.swc" />
+    <element path="lib\draakvlieg.swc" />
+    <element path="lib\romanshields_improvedgraphicattack.swc" />
+    <element path="lib\GameOver.swc" />
+    <element path="lib\Gameover.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>
@@ -71,7 +74,10 @@
   <!-- Assets to embed into the output SWF -->
   <library>
     <asset path="lib\Background.jpg" />
-    <asset path="lib\Startscherm.swf" />
+    <asset path="lib\StartScreenBG.jpg" />
+    <asset path="lib\NestBG.jpg" />
+    <asset path="lib\EndScreenBG.jpg" />
+    <asset path="lib\CreditsBG.jpg" />
   </library>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>

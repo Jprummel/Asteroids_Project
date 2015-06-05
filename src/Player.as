@@ -4,6 +4,8 @@ package
 	import flash.events.*;
 	import flash.geom.Point;
 	import flash.utils.*;
+	import flash.media.Sound;
+	import flash.net.URLRequest;
 	
 	/**
 	 * ...
@@ -12,15 +14,19 @@ package
 	public class Player extends Unit
 	{
 		private var _playerAnim	:MovieClip;
+		public var 	playerDies	:MovieClip;
 		private var _speed		:int;
-		private var _attack		:FireAttack;
+		public var _attack		:FireAttack;
 		
 		private var timeoutID	:uint;
 		
 		private var dx			:Number;
 		private var dy			:Number;
 		
-		private var _attacking	:Boolean = false;
+		public var _attacking	:Boolean = false;
+		
+		private var fireReq		:URLRequest = new URLRequest("Fireball.mp3");//Background music
+		private var fireSound	:Sound;
 		
 		public function Player():void
 		{			
@@ -36,8 +42,7 @@ package
 			stage.addEventListener(KeyboardEvent.KEY_DOWN, playerControll);
 			stage.addEventListener(KeyboardEvent.KEY_UP, onKeyUp);
 			stage.addEventListener(MouseEvent.MOUSE_DOWN, onClick);
-			//stage.addEventListener(MouseEvent.MOUSE_UP, stopClick);
-			
+
 			//PlayerAnimation
 			_playerAnim = new PlayerModel();
 			_playerAnim.x = stage.stageWidth / 2;
@@ -46,17 +51,14 @@ package
 			_playerAnim.scaleY = 0.5;
 			addChild(_playerAnim);
 			
+			//playerDies = new ();
+
 			//Starting lives
 			playerLiveStart();
 			//playerMovement(KeyboardEvent);
 			trace(playerLives + " Player");
 		}
-		
-		/*private function stopClick(e:MouseEvent):void 
-		{
-			_attacking = false;
-		}*/
-		
+
 		private function onClick(e:MouseEvent):void 
 		{
 			
@@ -64,17 +66,17 @@ package
 			{
 				if (!contains(_attack))
 				{
+					
 					_attacking = true; 
 				} 
 			}
 			else 
 			{
+				
 				_attacking = true; 
 			}
 		}
-		
-		
-		
+
 		private function aimMouse(e:Event):void 
 		{
 			dx = mouseX - _playerAnim.x;
@@ -86,18 +88,19 @@ package
 		{
 			if (_attacking == true)
 			{
+				
 				shoot();
 				_attacking = false;
 			}			
 			
-			if (_playerAnim.x < 100)
+			if (_playerAnim.x < 0)
 			{
 				_playerAnim.x = 200;
 			}
 			
-			if (_playerAnim.x >1000)
+			if (_playerAnim.x > stage.stageWidth)
 			{
-				_playerAnim.x = 950;
+				_playerAnim.x = 780;
 			}
 			
 			if (_playerAnim.y < -50)
@@ -153,18 +156,30 @@ package
 		
 		public function shoot():void
 		{
-				_attack = new FireAttack;
-				_attack.rotation = _playerAnim.rotation;
-				_attack.x = _playerAnim.x;
-				_attack.y = _playerAnim.y;
-				addChild(_attack);
-				timeoutID = setTimeout(removeAttack, 1 * 800);
+			//fireSound = new Sound(fireReq);
+			//fireSound.play();	
+			
+			_attack = new FireAttack;
+			_attack.rotation = _playerAnim.rotation;
+			_attack.x = _playerAnim.x;
+			_attack.y = _playerAnim.y;
+			addChild(_attack);
+			timeoutID = setTimeout(removeAttack, 1 * 800);
 		}
 		
 		private function removeAttack():void
 		{
 			removeChild(_attack);
 			clearTimeout(timeoutID);
+		}
+		public function destroy():void
+		{
+			removeEventListener(Event.ENTER_FRAME, update);
+			stage.removeEventListener(Event.ENTER_FRAME, aimMouse);
+			stage.removeEventListener(KeyboardEvent.KEY_DOWN, playerControll);
+			stage.removeEventListener(KeyboardEvent.KEY_UP, onKeyUp);
+			stage.removeEventListener(MouseEvent.MOUSE_DOWN, onClick);
+
 		}
 	}
 }

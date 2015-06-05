@@ -9,7 +9,7 @@ package
 	 */
 	public class ScoreManager extends Sprite
 	{
-		private var score		:int;
+		public var score		:int;
 		private var scoreText	:TextField;
 		
 		public function ScoreManager() 
@@ -17,14 +17,10 @@ package
 			addEventListener(Event.ADDED_TO_STAGE, init);
 		}
 		
-		private function update(e:Event):void 
-		{
-			updateScore(e);
-		}
-		
-		private function init(e:Event):void 
+		public function init(e:Event):void 
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
+			addEventListener(Event.ENTER_FRAME, update);
 			
 			score = 0;
 			
@@ -38,12 +34,10 @@ package
 			addChild(scoreText);
 		}
 		
-		private function updateScore(e:Event):void
+		private function update(e:Event):void 
 		{
-			/*if ()
-			{
-				score = score + 25;
-			}*/
+			scoreText.text = "Score: " + score.toString(); 
 		}
+
 	}
 }
