@@ -47,10 +47,7 @@ package
 			nestImage = new nest();
 			
 			addEventListener(Event.ADDED_TO_STAGE, init);
-			startGame.addEventListener(MouseEvent.MOUSE_DOWN, startGameButton);
-			help.addEventListener(MouseEvent.MOUSE_DOWN, helpButton);
-			exitGame.addEventListener(MouseEvent.MOUSE_DOWN, exitGameButton);
-			credits.addEventListener(MouseEvent.MOUSE_DOWN, creditsButton);
+			
 		}
 		
 		private function init(e:Event):void 
@@ -58,11 +55,8 @@ package
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			//Audio
 			bgSound = new Sound(bgmReq);
-			if (!playing)
-			{
 			sc = bgSound.play(0, 9999);
-			playing = true;
-			}
+			
 			
 			//BG
 			addChild(startBGImage);
@@ -72,24 +66,28 @@ package
 			credits.y = stage.stageHeight - 30;
 			addChild(credits);
 			//Exit Button
-			exitGame.x = stage.stageWidth / 2 + 90;
-			exitGame.y = stage.stageHeight / 2;
+			exitGame.x = stage.stageWidth / 2 + -55;
+			exitGame.y = stage.stageHeight / 2 +200;
 			addChild(exitGame);
 			//Options Button
-			help.x = stage.stageWidth / 2 -80;
-			help.y = stage.stageHeight / 2;
+			help.x = stage.stageWidth / 2 -225;
+			help.y = stage.stageHeight / 2 +200;
 			addChild(help);
 			//Start Button
-			startGame.x = stage.stageWidth / 2;
-			startGame.y = stage.stageHeight / 2;
+			startGame.x = stage.stageWidth / 2 -145;
+			startGame.y = stage.stageHeight / 2 +200;
 			addChild(startGame);
 			//Nest
-			addChild(nestImage);			
+			nestImage.x = stage.stageWidth / 2 -550;
+			nestImage.y = stage.stageHeight / 2 -200;
+			addChild(nestImage);	
+			
+			create();
 		}
 		
 		private function startGameButton(e:MouseEvent):void 
 		{
-			trace("Clicked Start");
+			//trace("Clicked Start");
 			dispatchEvent(new Event(START_GAME));
 			sc.stop();
 		}
@@ -103,13 +101,21 @@ package
 		
 		private function exitGameButton(e:MouseEvent):void 
 		{
-			trace("Clicked Exit");
+			//trace("Clicked Exit");
 		}
 		
 		private function creditsButton(e:MouseEvent):void 
 		{
-			trace("Clicked Credits");
+			//trace("Clicked Credits");
 			dispatchEvent(new Event(CREDITS));
+		}
+		
+		public function create():void
+		{
+			startGame.addEventListener(MouseEvent.MOUSE_DOWN, startGameButton);
+			help.addEventListener(MouseEvent.MOUSE_DOWN, helpButton);
+			exitGame.addEventListener(MouseEvent.MOUSE_DOWN, exitGameButton);
+			credits.addEventListener(MouseEvent.MOUSE_DOWN, creditsButton);
 		}
 		
 		public function destroy():void

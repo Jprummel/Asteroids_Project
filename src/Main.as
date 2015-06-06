@@ -3,6 +3,7 @@ package
 	import flash.accessibility.AccessibilityProperties;
 	import flash.display.Sprite;
 	import flash.events.Event;
+	import flash.media.*;
 	
 	/**
 	 * ...
@@ -10,11 +11,12 @@ package
 	 */
 	public class Main extends Sprite 
 	{
-		private var _game		:Game;
-		private var _helpPage	:HelpPage;
-		private var _credits	:CreditsPage;
-		private var _startScreen:StartScreen;
-		private var _endScreen	:EndScreen;
+		private var _game			:Game;
+		private var _helpPage		:HelpPage;
+		private var _credits		:CreditsPage;
+		private var _startScreen	:StartScreen;
+		private var _endScreen		:EndScreen;
+		private var _soundManager	:SoundManager;
 		
 		public function Main():void 
 		{
@@ -27,11 +29,12 @@ package
 			
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			// entry point	
-			_startScreen = new StartScreen;
-			_game = new Game;
-			_credits = new CreditsPage;
-			_helpPage = new HelpPage;
-			_endScreen = new EndScreen;
+			_startScreen = new StartScreen();
+			_game = new Game();
+			_credits = new CreditsPage();
+			_helpPage = new HelpPage();
+			_endScreen = new EndScreen();
+			_soundManager = new SoundManager();
 			addChild(_startScreen);
 			_startScreen.addEventListener(StartScreen.START_GAME, startGame);
 			_startScreen.addEventListener(StartScreen.HELP, helpPage);
@@ -47,6 +50,7 @@ package
 		{
 			_game = new Game;
 			addChild(_game);
+			_soundManager.ButtonClick();
 			removeChild(_endScreen);
 			_endScreen.destroy();
 		}
@@ -54,62 +58,50 @@ package
 		private function endScreen(e:Event):void 
 		{
 			addChild(_endScreen);
+			_soundManager.StopMusic();
 			removeChild(_game);
 			_game.destroy();
 		}
 
 		private function creditsPage(e:Event):void 
 		{
+			_soundManager.ButtonClick();
 			addChild(_credits);
-			destroyStart();
 		}
 
 		private function helpPage(e:Event):void 
 		{
+			_soundManager.ButtonClick();
 			addChild(_helpPage);
-			destroyStart();
 		}
 
 		private function startGame(e:Event):void
-		{
+		{	
 			addChild(_game);
-			destroyStart();
+			_soundManager.ButtonClick();
+			_soundManager.AmbientSound();
 		}
 		
 		//Back to menu buttons
 		
 		private function backToMenuFromEnd(e:Event):void 
 		{
-			createStart();
+			addChild(_startScreen);
+			_soundManager.MenuMusic();
 			removeChild(_endScreen);
 			_endScreen.destroy();
 		}
 		
 		private function backToMenuFromHelp(e:Event):void 
 		{
-			createStart();
+			_soundManager.ButtonClick();
 			removeChild(_helpPage);
-			_helpPage.destroy();
 		}
 		
 		private function backToMenuFromCredits(e:Event):void 
 		{
-			createStart();
+			_soundManager.ButtonClick();
 			removeChild(_credits);
-			_credits.destroy();
-		}
-
-		//Menu create/destroy
-		private function createStart():void
-		{
-			_startScreen = new StartScreen;
-			addChild(_startScreen);
-		}
-
-		private function destroyStart():void
-		{
-			removeChild(_startScreen);
-			_startScreen.destroy();
 		}
 	}
 }

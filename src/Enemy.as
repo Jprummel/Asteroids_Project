@@ -18,8 +18,8 @@ package
 			addEventListener(Event.ADDED_TO_STAGE, init);
 			//Add enemy animation
 			_enemy = new EnemyModel;
-			_enemy.scaleX = 0.35;
-			_enemy.scaleY = 0.35;
+			_enemy.scaleX = 0.25;
+			_enemy.scaleY = 0.25;
 			addChild(_enemy);
 		}
 		

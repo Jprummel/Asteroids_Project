@@ -14,7 +14,7 @@ package
 	public class Player extends Unit
 	{
 		private var _playerAnim	:MovieClip;
-		public var 	playerDies	:MovieClip;
+		public var 	_playerDies	:MovieClip;
 		private var _speed		:int;
 		public var _attack		:FireAttack;
 		
@@ -25,8 +25,7 @@ package
 		
 		public var _attacking	:Boolean = false;
 		
-		private var fireReq		:URLRequest = new URLRequest("Fireball.mp3");//Background music
-		private var fireSound	:Sound;
+		private var _soundManager:SoundManager;
 		
 		public function Player():void
 		{			
@@ -43,12 +42,13 @@ package
 			stage.addEventListener(KeyboardEvent.KEY_UP, onKeyUp);
 			stage.addEventListener(MouseEvent.MOUSE_DOWN, onClick);
 
+			_soundManager = new SoundManager();
 			//PlayerAnimation
 			_playerAnim = new PlayerModel();
 			_playerAnim.x = stage.stageWidth / 2;
 			_playerAnim.y = stage.stageHeight / 2;
-			_playerAnim.scaleX = 0.5;
-			_playerAnim.scaleY = 0.5;
+			_playerAnim.scaleX = 0.25;
+			_playerAnim.scaleY = 0.25;
 			addChild(_playerAnim);
 			
 			//playerDies = new ();
@@ -91,26 +91,6 @@ package
 				
 				shoot();
 				_attacking = false;
-			}			
-			
-			if (_playerAnim.x < 0)
-			{
-				_playerAnim.x = 200;
-			}
-			
-			if (_playerAnim.x > stage.stageWidth)
-			{
-				_playerAnim.x = 780;
-			}
-			
-			if (_playerAnim.y < -50)
-			{
-				_playerAnim.y = 600;
-			}
-			
-			if (_playerAnim.y > 600)
-			{
-				_playerAnim.y = -50;
 			}
 		}
 		
@@ -156,8 +136,7 @@ package
 		
 		public function shoot():void
 		{
-			//fireSound = new Sound(fireReq);
-			//fireSound.play();	
+			_soundManager.FireSound();
 			
 			_attack = new FireAttack;
 			_attack.rotation = _playerAnim.rotation;
@@ -171,6 +150,18 @@ package
 		{
 			removeChild(_attack);
 			clearTimeout(timeoutID);
+		}
+		
+		public function playerFaint():void
+		{
+			_playerDies = new PlayerDies();
+			_playerDies.x = _playerAnim.x;
+			_playerDies.y = _playerAnim.y;
+			_playerDies.scaleX = 0.25;
+			_playerDies.scaleY = 0.25;
+			_playerDies.rotation = _playerAnim.rotation;
+			removeChild(_playerAnim);
+			addChild(_playerDies);
 		}
 		public function destroy():void
 		{

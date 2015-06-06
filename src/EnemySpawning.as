@@ -10,7 +10,7 @@ package
 	 */
 	public class EnemySpawning extends Sprite
 	{
-		private var timer:Timer = new Timer(4000);
+		private var timer:Timer = new Timer(2000);
 		private var _game: Game;
 		private var _enemyPerWave: int = 1;
 		private var spawnPos:Number;

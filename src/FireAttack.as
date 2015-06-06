@@ -11,6 +11,8 @@ package
 		{
 			//Add bullet animation
 			var attack:MovieClip = new FireBreath();
+			attack.scaleX = 0.3;
+			attack.scaleY = 0.3;
 			addChild(attack);
 		}
 		

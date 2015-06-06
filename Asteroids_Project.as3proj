@@ -52,12 +52,11 @@
   </includeLibraries>
   <!-- SWC Libraries -->
   <libraryPaths>
-    <element path="lib\vuuraanval.swc" />
     <element path="lib\Startscherm.swc" />
-    <element path="lib\draakvlieg.swc" />
     <element path="lib\romanshields_improvedgraphicattack.swc" />
     <element path="lib\GameOver.swc" />
     <element path="lib\Gameover.swc" />
+    <element path="lib\draak.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>
