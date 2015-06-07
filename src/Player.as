@@ -3,6 +3,7 @@ package
 	import flash.display.*;
 	import flash.events.*;
 	import flash.geom.Point;
+	import flash.text.TextField;
 	import flash.utils.*;
 	import flash.media.Sound;
 	import flash.net.URLRequest;
@@ -24,6 +25,8 @@ package
 		private var dy			:Number;
 		
 		public var _attacking	:Boolean = false;
+		
+		private var _livesText	:TextField;
 		
 		private var _soundManager:SoundManager;
 		
@@ -51,12 +54,14 @@ package
 			_playerAnim.scaleY = 0.25;
 			addChild(_playerAnim);
 			
-			//playerDies = new ();
-
+			//Lives related
+			
 			//Starting lives
 			playerLiveStart();
 			//playerMovement(KeyboardEvent);
 			trace(playerLives + " Player");
+			
+			
 		}
 
 		private function onClick(e:MouseEvent):void 
@@ -66,7 +71,6 @@ package
 			{
 				if (!contains(_attack))
 				{
-					
 					_attacking = true; 
 				} 
 			}
@@ -92,6 +96,8 @@ package
 				shoot();
 				_attacking = false;
 			}
+			
+			
 		}
 		
 		public function playerControll(e:KeyboardEvent):void 
@@ -143,7 +149,7 @@ package
 			_attack.x = _playerAnim.x;
 			_attack.y = _playerAnim.y;
 			addChild(_attack);
-			timeoutID = setTimeout(removeAttack, 1 * 800);
+			timeoutID = setTimeout(removeAttack, 1 * 500);
 		}
 		
 		private function removeAttack():void

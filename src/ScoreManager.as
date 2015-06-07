@@ -30,7 +30,6 @@ package
 			scoreText.x = stage.stageWidth - 100;
 			scoreText.y = 20;
 			scoreText.textColor = 0xFFFFFF;
-			scoreText.text = "Score: " + score.toString(); 
 			addChild(scoreText);
 		}
 		
@@ -38,6 +37,5 @@ package
 		{
 			scoreText.text = "Score: " + score.toString(); 
 		}
-
 	}
 }

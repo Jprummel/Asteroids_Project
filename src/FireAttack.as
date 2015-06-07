@@ -15,7 +15,5 @@ package
 			attack.scaleY = 0.3;
 			addChild(attack);
 		}
-		
 	}
-
 }

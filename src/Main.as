@@ -87,6 +87,7 @@ package
 		private function backToMenuFromEnd(e:Event):void 
 		{
 			addChild(_startScreen);
+			_soundManager.ButtonClick();
 			_soundManager.MenuMusic();
 			removeChild(_endScreen);
 			_endScreen.destroy();

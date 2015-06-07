@@ -26,9 +26,6 @@ package
 		private function init(e:Event):void 
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
-			//stage.addEventListener(Event.EXIT_FRAME, enemyRotate);
-			
-			enemyLiveStart();
 		}
 
 		public function EnemyFollow(target:DragonNest):void

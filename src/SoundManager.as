@@ -12,32 +12,37 @@ package
 	public class SoundManager extends Sprite
 	{
 		//Background music
-		private var bgmReq			:URLRequest = new URLRequest("MenuBG.mp3");//Menu
-		private var bgSound			:Sound;
-		private var gameBGReq		:URLRequest = new URLRequest("AmbientBG.mp3");//Game
-		private var gameBGSound		:Sound;
-		private var bgChannel		:SoundChannel;
+		private var bgmReq				:URLRequest = new URLRequest("MenuBG.mp3");//Menu
+		private var bgSound				:Sound;
+		private var gameBGReq			:URLRequest = new URLRequest("AmbientBG.mp3");//Game
+		private var gameBGSound			:Sound;
+		private var bgChannel			:SoundChannel;
 		
 		private var clickReq			:URLRequest = new URLRequest("ButtonClick.mp3");//Menu button click
 		private var clickSound			:Sound;
 		
-		//private var nestReq		:URLRequest = new URLRequest("Nesthit.mp3");//Nest hit / Egg Crack sound
-		//private var nestSound		:Sound;
-		private var enemyDiesReq	:URLRequest = new URLRequest("EnemyDies.mp3");//Enemy dies sound
-		private var enemyDiesSound	:Sound;
-		//private var playerReq		:URLRequest = new URLRequest("PlayerDies.mp3");//Player dies sound
-		//private var playerSound	:Sound;
-		private var fireReq			:URLRequest = new URLRequest("Fireball.wav");//Attack Sound
-		private var fireSound		:Sound;
+		//private var nestReq				:URLRequest = new URLRequest("Nesthit.mp3");//Nest hit / Egg Crack sound
+		//private var nestSound			:Sound;
+		private var enemyDiesReq		:URLRequest = new URLRequest("EnemyDies.mp3");//Enemy dies sound
+		private var enemyDiesSound		:Sound;
+		//private var enemyWalkingReq		:URLRequest = new URLRequest("EnemyWalking.mp3");//Enemy dies sound
+		//private var enemyWalkingSound	:Sound;
+		//private var playerReq			:URLRequest = new URLRequest("PlayerDies.mp3");//Player dies sound
+		//private var playerSound			:Sound;
+		private var fireReq				:URLRequest = new URLRequest("Fireball.mp3");//Attack Sound
+		private var fireSound			:Sound;
 		
 		
 		public function SoundManager() 
 		{
-			gameBGSound = new Sound(gameBGReq);
-			bgSound = new Sound(bgmReq);
-			enemyDiesSound = new Sound(enemyDiesReq);
-			fireSound = new Sound(fireReq);
-			clickSound = new Sound(clickReq);
+			gameBGSound 		= new Sound(gameBGReq);
+			bgSound 			= new Sound(bgmReq);
+			//enemyWalkingSound 	= new Sound(enemyWalkingReq);
+			enemyDiesSound 		= new Sound(enemyDiesReq);
+			//playerSound			= new Sound(playerReq);
+			//nestSound			= new Sound(nestReq);
+			fireSound 			= new Sound(fireReq);
+			clickSound 			= new Sound(clickReq);
 			addEventListener(Event.ADDED_TO_STAGE, init);
 		}
 		
