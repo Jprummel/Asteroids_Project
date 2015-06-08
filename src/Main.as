@@ -40,13 +40,12 @@ package
 			_startScreen.addEventListener(StartScreen.HELP, helpPage);
 			_startScreen.addEventListener(StartScreen.CREDITS, creditsPage);
 			_game.addEventListener(Game.END, endScreen);
-			_endScreen.addEventListener(EndScreen.RETRY, restartGame);
-			_endScreen.addEventListener(EndScreen.RETURN, backToMenuFromEnd);
+			_endScreen.addEventListener(EndScreen.RETRY, backToMenuFromEnd);
 			_credits.addEventListener(CreditsPage.RETURN, backToMenuFromCredits);
 			_helpPage.addEventListener(HelpPage.RETURN, backToMenuFromHelp);
 		}
 
-		private function restartGame(e:Event):void 
+		/*private function restartGame(e:Event):void 
 		{
 			
 			init();
@@ -55,7 +54,7 @@ package
 			//_soundManager.ButtonClick();
 			//removeChild(_endScreen);
 			//_endScreen.destroy();
-		}
+		}*/
 	
 		private function endScreen(e:Event):void 
 		{
@@ -80,7 +79,7 @@ package
 
 		private function startGame(e:Event):void
 		{	
-			init();	
+			//init();	
 			addChild(_game);
 			_soundManager.ButtonClick();
 			_soundManager.AmbientSound();
@@ -90,11 +89,12 @@ package
 		
 		private function backToMenuFromEnd(e:Event):void 
 		{
-			addChild(_startScreen);
-			_soundManager.ButtonClick();
-			_soundManager.MenuMusic();
-			removeChild(_endScreen);
-			_endScreen.destroy();
+			init()
+			//addChild(_startScreen);
+			//_soundManager.ButtonClick();
+			//_soundManager.MenuMusic();
+			//removeChild(_endScreen);
+			//_endScreen.destroy();
 		}
 		
 		private function backToMenuFromHelp(e:Event):void 

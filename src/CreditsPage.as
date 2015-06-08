@@ -38,7 +38,6 @@ package
 		
 		private function returnToMenuButton(e:MouseEvent):void 
 		{
-			trace("clicked back");
 			dispatchEvent(new Event(RETURN));
 		}
 		
