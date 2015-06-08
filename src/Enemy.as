@@ -30,17 +30,14 @@ package
 
 		public function EnemyFollow(target:DragonNest):void
 		{	
-			
 			if (this.x >= target.x)
 			{
 				this.x -= 1;
 			}
-
 			else if (this.x <= target.x)
 			{
 				this.x += 1;
 			}
-
 			if (this.y <= target.y)
 			{
 				this.y += 1;

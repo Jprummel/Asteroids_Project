@@ -9,7 +9,7 @@ package
 	 */
 	public class HelpPage extends Sprite
 	{
-		[Embed(source="../lib/StartScreenBG.jpg")]
+		[Embed(source="../lib/Help.jpg")]
 		public var helpBG			:Class;
 		private var helpBGImage		:Bitmap;
 		
@@ -28,7 +28,7 @@ package
 			helpBGImage = new helpBG();
 			addChild(helpBGImage);
 			
-			returnToMenu = new Credits();
+			returnToMenu = new Return();
 			returnToMenu.x = stage.stageWidth -575;
 			returnToMenu.y = stage.stageHeight - 30;
 			addChild(returnToMenu);

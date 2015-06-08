@@ -3,6 +3,7 @@ package
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.TimerEvent;
+	import flash.media.Sound;
 	import flash.utils.Timer;
 	/**
 	 * ...
@@ -10,11 +11,12 @@ package
 	 */
 	public class EnemySpawning extends Sprite
 	{
-		private var timer:Timer = new Timer(2000);
-		private var _game: Game;
-		private var _enemyPerWave: int = 1;
-		private var spawnPos:Number;
-		private var spawnSwitch:Number;
+		private var _timer			:Timer = new Timer(2000);
+		private var _game			:Game;
+		private var _enemyPerWave	:int = 1;
+		private var _spawnPos		:Number;
+		private var _spawnSwitch	:Number;
+		private var _soundmanager	:SoundManager;
 		
 		public function EnemySpawning(game:Game) 
 		{	
@@ -25,22 +27,22 @@ package
 		private function init(e:Event):void 
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
-			timer.addEventListener(TimerEvent.TIMER, spawnWaves);
-			timer.start();
-			
+			_timer.addEventListener(TimerEvent.TIMER, spawnWaves);
+			_timer.start();
+			_soundmanager = new SoundManager();
 		}
 		
 		private function spawnWaves(e:TimerEvent):void 
 		{	
-			spawnPos = Math.random() * 1;
-			spawnSwitch = Math.random() * 1; 
+			_spawnPos = Math.random() * 1;
+			_spawnSwitch = Math.random() * 1; 
 			
 			var enemy:Enemy = new Enemy();
 			for (var i :int = 0; i < _enemyPerWave; i++ )
 			{
-				if (spawnSwitch <= 0.5) 
+				if (_spawnSwitch <= 0.5) 
 				{
-					if (spawnPos <= 0.5) 
+					if (_spawnPos <= 0.5) 
 					{
 						enemy.x = Math.random() * 800; //top
 						enemy.y = Math.random() * 10 - 250;
@@ -54,7 +56,7 @@ package
 				}
 				else
 				{
-					if (spawnPos <= 0.5)
+					if (_spawnPos <= 0.5)
 					{
 						this.x = Math.random() * 1 - 250;//left
 						this.y = Math.random() * 800;
@@ -67,9 +69,8 @@ package
 						enemy.rotation = 90;
 					}
 				}
-				//enemy.x = Math.random() * 800;
-				//enemy.y = Math.random() * 800;
 				_game._enemies.push(enemy);
+				//_soundmanager.EnemyWalking();
 				Game(parent).addChild(enemy);
 			}
 		}

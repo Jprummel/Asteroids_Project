@@ -57,6 +57,7 @@
     <element path="lib\GameOver.swc" />
     <element path="lib\Gameover.swc" />
     <element path="lib\draak.swc" />
+    <element path="lib\Return.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>
@@ -77,6 +78,7 @@
     <asset path="lib\NestBG.jpg" />
     <asset path="lib\EndScreenBG.jpg" />
     <asset path="lib\CreditsBG.jpg" />
+    <asset path="lib\Help.jpg" />
   </library>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>

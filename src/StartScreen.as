@@ -13,24 +13,24 @@ package
 	{
 		//BG
 		[Embed(source="../lib/StartScreenBG.jpg")]
-		public var startBG		:Class;
-		private var startBGImage:Bitmap	
+		public var startBG				:Class;
+		private var startBGImage		:Bitmap	
 		
 		//Audio
-		private var bgmReq	:URLRequest = new URLRequest("MenuBG.mp3");
-		private var bgSound	:Sound;
-		private var sc		:SoundChannel;
-		private var	playing	:Boolean = false;
+		private var bgmReq				:URLRequest = new URLRequest("MenuBG.mp3");
+		private var bgSound				:Sound;
+		private var sc					:SoundChannel;
+		private var	playing				:Boolean = false;
 		
 		//Nest
 		[Embed(source="../lib/NestBG.jpg")]
-		public var nest:Class;
-		private var nestImage:Bitmap		
+		public var nest					:Class;
+		private var nestImage			:Bitmap		
 		
-		public var startGame	:MovieClip;
-		public var help			:MovieClip;
-		public var exitGame		:MovieClip;
-		public var credits		:MovieClip;
+		public var startGame			:MovieClip;
+		public var help					:MovieClip;
+		public var exitGame				:MovieClip;
+		public var credits				:MovieClip;
 		
 		public static const	START_GAME	:String = "startGame";
 		public static const CREDITS		:String = "creditsPage";
@@ -56,8 +56,7 @@ package
 			//Audio
 			bgSound = new Sound(bgmReq);
 			sc = bgSound.play(0, 9999);
-			
-			
+
 			//BG
 			addChild(startBGImage);
 			
@@ -87,16 +86,13 @@ package
 		
 		private function startGameButton(e:MouseEvent):void 
 		{
-			//trace("Clicked Start");
 			dispatchEvent(new Event(START_GAME));
 			sc.stop();
 		}
 		
 		private function helpButton(e:MouseEvent):void 
 		{
-			trace("Clicked Help");
 			dispatchEvent(new Event(HELP));
-			
 		}
 		
 		private function exitGameButton(e:MouseEvent):void 
@@ -106,7 +102,6 @@ package
 		
 		private function creditsButton(e:MouseEvent):void 
 		{
-			//trace("Clicked Credits");
 			dispatchEvent(new Event(CREDITS));
 		}
 		

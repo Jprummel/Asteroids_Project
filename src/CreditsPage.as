@@ -24,12 +24,11 @@ package
 		private function init(e:Event):void 
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
-		
-			
+
 			creditsBGImage = new creditsBG();
 			addChild(creditsBGImage);
 			
-			returnToMenu = new Credits();
+			returnToMenu = new Return();
 			returnToMenu.x = stage.stageWidth - 575;
 			returnToMenu.y = stage.stageHeight - 30;
 			addChild(returnToMenu);

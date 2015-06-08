@@ -48,17 +48,20 @@ package
 
 		private function restartGame(e:Event):void 
 		{
-			_game = new Game;
-			addChild(_game);
-			_soundManager.ButtonClick();
-			removeChild(_endScreen);
-			_endScreen.destroy();
+			
+			init();
+			//_game = new Game;
+			//addChild(_game);
+			//_soundManager.ButtonClick();
+			//removeChild(_endScreen);
+			//_endScreen.destroy();
 		}
 	
 		private function endScreen(e:Event):void 
 		{
 			addChild(_endScreen);
 			_soundManager.StopMusic();
+			_soundManager.GameOver();
 			removeChild(_game);
 			_game.destroy();
 		}
@@ -77,6 +80,7 @@ package
 
 		private function startGame(e:Event):void
 		{	
+			init();	
 			addChild(_game);
 			_soundManager.ButtonClick();
 			_soundManager.AmbientSound();

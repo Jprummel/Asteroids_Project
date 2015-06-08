@@ -13,11 +13,11 @@ package
 		public var playerLives	:int;
 		public var maxLives		:int;
 		
-		public var up		:Boolean =  false;
-		public var down		:Boolean =  false;
-		public var right	:Boolean =  false;
-		public var left		:Boolean =  false;
-		public var speed	:int = 5;
+		public var up			:Boolean =  false;
+		public var down			:Boolean =  false;
+		public var right		:Boolean =  false;
+		public var left			:Boolean =  false;
+		public var speed		:int = 5;
 		
 		public function Unit():void
 		{

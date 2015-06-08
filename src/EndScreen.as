@@ -13,11 +13,11 @@ package
 	{
 		//BG
 		[Embed(source="../lib/EndScreenBG.jpg")]
-		public var endBG		:Class;
-		private var endBGImage	:Bitmap;
+		public var endBG			:Class;
+		private var endBGImage		:Bitmap;
 		//Buttons
-		public var tryAgain		:MovieClip;
-		public var backToMenu	:MovieClip;
+		public var tryAgain			:MovieClip;
+		public var backToMenu		:MovieClip;
 		//Events
 		public static const RETURN	:String = "backToMenuFromEnd";
 		public static const RETRY	:String = "restartGame";
@@ -30,7 +30,6 @@ package
 			addEventListener(Event.ADDED_TO_STAGE, init);
 			tryAgain.addEventListener(MouseEvent.MOUSE_DOWN, tryAgainButton);
 			backToMenu.addEventListener(MouseEvent.MOUSE_DOWN, backToMenuButton);
-			
 		}
 		
 		private function init(e:Event):void 
@@ -47,7 +46,6 @@ package
 			backToMenu.x = 400;
 			backToMenu.y = 500;
 			addChild(backToMenu);			
-			
 		}
 		
 		private function backToMenuButton(e:MouseEvent):void 

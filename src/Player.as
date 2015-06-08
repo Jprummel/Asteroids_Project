@@ -50,8 +50,8 @@ package
 			_playerAnim = new PlayerModel();
 			_playerAnim.x = stage.stageWidth / 2;
 			_playerAnim.y = stage.stageHeight / 2;
-			_playerAnim.scaleX = 0.25;
-			_playerAnim.scaleY = 0.25;
+			_playerAnim.scaleX = 0.2;
+			_playerAnim.scaleY = 0.2;
 			addChild(_playerAnim);
 			
 			//Lives related
@@ -149,7 +149,7 @@ package
 			_attack.x = _playerAnim.x;
 			_attack.y = _playerAnim.y;
 			addChild(_attack);
-			timeoutID = setTimeout(removeAttack, 1 * 500);
+			timeoutID = setTimeout(removeAttack,500);
 		}
 		
 		private function removeAttack():void
@@ -163,8 +163,8 @@ package
 			_playerDies = new PlayerDies();
 			_playerDies.x = _playerAnim.x;
 			_playerDies.y = _playerAnim.y;
-			_playerDies.scaleX = 0.25;
-			_playerDies.scaleY = 0.25;
+			_playerDies.scaleX = 0.2;
+			_playerDies.scaleY = 0.2;
 			_playerDies.rotation = _playerAnim.rotation;
 			removeChild(_playerAnim);
 			addChild(_playerDies);
