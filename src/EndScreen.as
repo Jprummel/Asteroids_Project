@@ -19,6 +19,8 @@ package
 		public var backToMenu		:MovieClip;
 		//Events
 		public static const RETRY	:String = "restartGame";
+		//Highscore
+		private var _highscore		:ScoreManager;
 		
 		public function EndScreen() 
 		{
@@ -37,7 +39,7 @@ package
 			
 			backToMenu.x = 400;
 			backToMenu.y = 500;
-			addChild(backToMenu);			
+			addChild(backToMenu);
 		}
 		
 		private function backToMenuButton(e:MouseEvent):void 

@@ -36,21 +36,19 @@ package
 		
 		public function Game():void 
 		{
-			addEventListener(Event.ADDED_TO_STAGE, init);
-			
+			addEventListener(Event.ADDED_TO_STAGE, init);			
 		}
 		
 		private function init(e:Event):void 
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
-			//addEventListener(Event.ENTER_FRAME, update);
 			create();
 			_background = new Background;
 			addChild(_background);		
 			
 			_dragonNest = new DragonNest;
-			_dragonNest.x = 320;
-			_dragonNest.y = 310;
+			_dragonNest.x =stage.stageWidth /2;
+			_dragonNest.y = stage.stageWidth / 2;
 			addChild(_dragonNest);						
 			
 			_enemy = new Enemy;
@@ -71,6 +69,7 @@ package
 			_liveText.x = stage.stageWidth - 100;
 			_liveText.y = 40;
 			_liveText.textColor = 0xFFFFFF;
+			
 			addChild(_liveText);
 			
 			

@@ -58,6 +58,8 @@
     <element path="lib\Gameover.swc" />
     <element path="lib\draak.swc" />
     <element path="lib\Return.swc" />
+    <element path="lib\Nest.swc" />
+    <element path="lib\romanshields_Improvedgraphic2.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>

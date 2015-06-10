@@ -10,14 +10,11 @@ package
 	 */
 	public class DragonNest extends Sprite 
 	{
-		private var dragonNest	:Shape;
+		private var dragonNest	:Nest;
 		
 		public function DragonNest():void
 		{
-			dragonNest = new Shape;
-			dragonNest.graphics.beginFill(0x000000);
-			dragonNest.graphics.drawRect(45, 45, 60,60);
-			dragonNest.graphics.endFill()
+			dragonNest = new Nest();
 			addChild(dragonNest);
 		}
 	}

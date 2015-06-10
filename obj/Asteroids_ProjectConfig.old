@@ -16,7 +16,7 @@
     </define>
     <define append="true">
       <name>CONFIG::timeStamp</name>
-      <value>'8-6-2015'</value>
+      <value>'10-6-2015'</value>
     </define>
     <define append="true">
       <name>CONFIG::air</name>
@@ -37,11 +37,13 @@
     </source-path>
     <library-path append="true">
       <path-element>C:\xampp\htdocs\Bewijzenmap\periode4\dip\Asteroids_Project\lib\Startscherm.swc</path-element>
-      <path-element>C:\xampp\htdocs\Bewijzenmap\periode4\dip\Asteroids_Project\lib\romanshields_improvedgraphicattack.swc</path-element>
       <path-element>C:\xampp\htdocs\Bewijzenmap\periode4\dip\Asteroids_Project\lib\GameOver.swc</path-element>
       <path-element>C:\xampp\htdocs\Bewijzenmap\periode4\dip\Asteroids_Project\lib\Gameover.swc</path-element>
       <path-element>C:\xampp\htdocs\Bewijzenmap\periode4\dip\Asteroids_Project\lib\draak.swc</path-element>
       <path-element>C:\xampp\htdocs\Bewijzenmap\periode4\dip\Asteroids_Project\lib\Return.swc</path-element>
+      <path-element>C:\xampp\htdocs\Bewijzenmap\periode4\dip\Asteroids_Project\lib\Nest.swc</path-element>
+      <path-element>C:\xampp\htdocs\Bewijzenmap\periode4\dip\Asteroids_Project\lib\romanshields_Improvedgraphic2.swc</path-element>
+      <path-element>C:\xampp\htdocs\Bewijzenmap\periode4\dip\Asteroids_Project\lib\Font1.swc</path-element>
     </library-path>
   </compiler>
   <file-specs>

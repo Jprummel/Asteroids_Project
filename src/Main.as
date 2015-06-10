@@ -89,12 +89,7 @@ package
 		
 		private function backToMenuFromEnd(e:Event):void 
 		{
-			init()
-			//addChild(_startScreen);
-			//_soundManager.ButtonClick();
-			//_soundManager.MenuMusic();
-			//removeChild(_endScreen);
-			//_endScreen.destroy();
+			init();
 		}
 		
 		private function backToMenuFromHelp(e:Event):void 
