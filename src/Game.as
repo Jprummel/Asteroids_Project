@@ -111,7 +111,7 @@ package
 				//PLAYER HITTEST
 				else if (stage.contains(_player))
 				{
-					if (_player.hitTestObject(_enemies[i]))
+					if (_player._attack.hitTestObject(_enemies[i]))
 					{	
 						trace("Enemy died");
 						removeChild(_enemies[i]);

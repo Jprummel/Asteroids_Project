@@ -66,17 +66,17 @@ package
 
 		private function onClick(e:MouseEvent):void 
 		{
-			
 			if (_attack != null) 
 			{
 				if (!contains(_attack))
 				{
+					trace(1);
 					_attacking = true; 
 				} 
 			}
 			else 
 			{
-				
+				trace(2);
 				_attacking = true; 
 			}
 		}
@@ -96,7 +96,6 @@ package
 				shoot();
 				_attacking = false;
 			}
-			
 			
 		}
 		
@@ -154,7 +153,9 @@ package
 		
 		private function removeAttack():void
 		{
-			removeChild(_attack);
+			removeChild(_attack); 
+			_attack.x = -2000;
+			_attack.y = -2000;
 			clearTimeout(timeoutID);
 		}
 		

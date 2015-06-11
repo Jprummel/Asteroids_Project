@@ -16,7 +16,7 @@
     </define>
     <define append="true">
       <name>CONFIG::timeStamp</name>
-      <value>'10-6-2015'</value>
+      <value>'11-6-2015'</value>
     </define>
     <define append="true">
       <name>CONFIG::air</name>
@@ -43,7 +43,6 @@
       <path-element>C:\xampp\htdocs\Bewijzenmap\periode4\dip\Asteroids_Project\lib\Return.swc</path-element>
       <path-element>C:\xampp\htdocs\Bewijzenmap\periode4\dip\Asteroids_Project\lib\Nest.swc</path-element>
       <path-element>C:\xampp\htdocs\Bewijzenmap\periode4\dip\Asteroids_Project\lib\romanshields_Improvedgraphic2.swc</path-element>
-      <path-element>C:\xampp\htdocs\Bewijzenmap\periode4\dip\Asteroids_Project\lib\Font1.swc</path-element>
     </library-path>
   </compiler>
   <file-specs>
