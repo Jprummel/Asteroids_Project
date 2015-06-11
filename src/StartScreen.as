@@ -38,16 +38,15 @@ package
 		
 		public function StartScreen() 
 		{
-			startGame = new StartGame();
-			help = new Help();
-			exitGame = new ExitGame();
-			credits = new Credits();
+			startGame 	= new StartGame();
+			help 		= new Help();
+			exitGame 	= new ExitGame();
+			credits 	= new Credits();
 			
-			startBGImage = new startBG();
-			nestImage = new nest();
+			startBGImage= new startBG();
+			nestImage 	= new nest();
 			
-			addEventListener(Event.ADDED_TO_STAGE, init);
-			
+			addEventListener(Event.ADDED_TO_STAGE, init);			
 		}
 		
 		private function init(e:Event):void 
@@ -56,10 +55,8 @@ package
 			//Audio
 			bgSound = new Sound(bgmReq);
 			sc = bgSound.play(0, 9999);
-
 			//BG
-			addChild(startBGImage);
-			
+			addChild(startBGImage);			
 			//Credits Page
 			credits.x = stage.stageWidth - 150;
 			credits.y = stage.stageHeight - 30;
@@ -93,11 +90,6 @@ package
 		private function helpButton(e:MouseEvent):void 
 		{
 			dispatchEvent(new Event(HELP));
-		}
-		
-		private function exitGameButton(e:MouseEvent):void 
-		{
-			//trace("Clicked Exit");
 		}
 		
 		private function creditsButton(e:MouseEvent):void 

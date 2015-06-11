@@ -39,7 +39,7 @@ package
 		
 		private function update(e:Event):void 
 		{
-		if (up)
+			if (up)
 			{
 				this.y -= speed;
 			}
