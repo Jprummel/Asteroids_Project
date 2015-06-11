@@ -101,7 +101,6 @@ package
 		{
 			startGame.addEventListener(MouseEvent.MOUSE_DOWN, startGameButton);
 			help.addEventListener(MouseEvent.MOUSE_DOWN, helpButton);
-			exitGame.addEventListener(MouseEvent.MOUSE_DOWN, exitGameButton);
 			credits.addEventListener(MouseEvent.MOUSE_DOWN, creditsButton);
 		}
 		
@@ -109,7 +108,6 @@ package
 		{
 			startGame.removeEventListener(MouseEvent.MOUSE_DOWN, startGameButton);
 			help.removeEventListener(MouseEvent.MOUSE_DOWN, helpButton);
-			exitGame.removeEventListener(MouseEvent.MOUSE_DOWN, exitGameButton);
 			credits.removeEventListener(MouseEvent.MOUSE_DOWN, creditsButton);
 		}
 	}
