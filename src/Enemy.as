@@ -32,19 +32,19 @@ package
 		{	
 			if (this.x >= target.x)
 			{
-				this.x -= 1;
+				this.x -= 2;
 			}
 			else if (this.x <= target.x)
 			{
-				this.x += 1;
+				this.x += 2;
 			}
 			if (this.y <= target.y)
 			{
-				this.y += 1;
+				this.y += 2;
 			}
 			else if (this.y >= target.y)
 			{
-				this.y -= 1;
+				this.y -= 2;
 			}
 		}
 	}
