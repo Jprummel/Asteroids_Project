@@ -44,7 +44,6 @@ package
 		
 		private function backToMenuButton(e:MouseEvent):void 
 		{
-			trace("Clicked menu");
 			dispatchEvent(new Event(RETRY));
 		}
 		

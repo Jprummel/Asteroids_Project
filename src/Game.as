@@ -43,6 +43,7 @@ package
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			create();
+			
 			_background = new Background;
 			addChild(_background);		
 			
@@ -81,6 +82,8 @@ package
 		{
 			_liveText.text = "Lives: " + _player.playerLives.toString();
 			
+			
+			
 			var enemyYellGenerator:Number = Math.random() * 1;
 			for (var i:int = _enemies.length - 1; i >= 0; i--)
 			{	
@@ -99,7 +102,6 @@ package
 					if (_player.playerLives < 1)
 					{
 						_player.playerFaint();
-						//_soundManager.PlayerFaint();
 						removePlayer = true;
 						_endTimer = setTimeout(endGame ,1 * 950);
 					}

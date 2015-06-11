@@ -4,6 +4,7 @@ package
 	import flash.display.Shape;
 	import flash.events.Event;
 	import flash.geom.Point;
+	import flash.media.Sound;
 	
 	/**
 	 * ...
@@ -11,8 +12,8 @@ package
 	 */
 	public class Enemy extends Unit 
 	{
-		private var _enemy	:MovieClip;
-		
+		private var _enemy			:MovieClip;
+
 		public function Enemy():void
 		{
 			addEventListener(Event.ADDED_TO_STAGE, init);

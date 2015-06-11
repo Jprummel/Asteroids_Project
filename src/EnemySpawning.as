@@ -70,7 +70,6 @@ package
 					}
 				}
 				_game._enemies.push(enemy);
-				//_soundmanager.EnemyWalking();
 				Game(parent).addChild(enemy);
 			}
 		}

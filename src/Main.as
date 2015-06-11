@@ -45,21 +45,11 @@ package
 			_helpPage.addEventListener(HelpPage.RETURN, backToMenuFromHelp);
 		}
 
-		/*private function restartGame(e:Event):void 
-		{
-			
-			init();
-			//_game = new Game;
-			//addChild(_game);
-			//_soundManager.ButtonClick();
-			//removeChild(_endScreen);
-			//_endScreen.destroy();
-		}*/
-	
 		private function endScreen(e:Event):void 
 		{
 			addChild(_endScreen);
 			_soundManager.StopMusic();
+			_soundManager.StopEFX();
 			_soundManager.GameOver();
 			removeChild(_game);
 			_game.destroy();
@@ -79,10 +69,10 @@ package
 
 		private function startGame(e:Event):void
 		{	
-			//init();	
 			addChild(_game);
 			_soundManager.ButtonClick();
 			_soundManager.AmbientSound();
+			_soundManager.EnemyWalking();
 		}
 		
 		//Back to menu buttons

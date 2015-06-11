@@ -27,10 +27,9 @@ package
 		private var nestSound			:Sound;
 		private var enemyDiesReq		:URLRequest = new URLRequest("http://17722.hosts.ma-cloud.nl/gameMusic/EnemyDies.mp3");//Enemy dies sound
 		private var enemyDiesSound		:Sound;
-		//private var enemyWalkingReq		:URLRequest = new URLRequest("EnemyWalking.mp3");//Enemy dies sound
-		//private var enemyWalkingSound	:Sound;
-		//private var playerReq			:URLRequest = new URLRequest("PlayerDies.mp3");//Player dies sound
-		//private var playerSound			:Sound;
+		private var enemyWalkingReq		:URLRequest = new URLRequest("http://17722.hosts.ma-cloud.nl/gameMusic/EnemyWalking.mp3");//Enemy dies sound
+		private var enemyWalkingSound	:Sound;
+		private var efxChannel			:SoundChannel;
 		private var fireReq				:URLRequest = new URLRequest("http://17722.hosts.ma-cloud.nl/gameMusic/Fireball.mp3");//Attack Sound
 		private var fireSound			:Sound;
 		
@@ -40,9 +39,8 @@ package
 			gameBGSound 		= new Sound(gameBGReq);
 			bgSound 			= new Sound(bgmReq);
 			gameOverBGSound		= new Sound(gameOverBGReq);
-			//enemyWalkingSound 	= new Sound(enemyWalkingReq);
+			enemyWalkingSound 	= new Sound(enemyWalkingReq);
 			enemyDiesSound 		= new Sound(enemyDiesReq);
-			//playerSound			= new Sound(playerReq);
 			nestSound			= new Sound(nestReq);
 			fireSound 			= new Sound(fireReq);
 			clickSound 			= new Sound(clickReq);
@@ -72,16 +70,22 @@ package
 			bgChannel.stop();
 		}
 		
+		
 		//SOUND EFFECTS
 		//Enemy
 		public function EnemyWalking():void
 		{
-			//enemyWalkingSound.play();
+			efxChannel = enemyWalkingSound.play(0,9999);
 		}
 		
 		public function EnemyDies():void
 		{
 			enemyDiesSound.play();
+		}
+		
+		public function StopEFX():void
+		{
+			efxChannel.stop();
 		}
 		
 		//Player&Ambient
@@ -94,11 +98,7 @@ package
 		{
 			nestSound.play();
 		}
-		
-		public function PlayerFaint(): void
-		{
-			//playerSound.play();
-		}
+
 		//Menu
 		public function ButtonClick():void
 		{

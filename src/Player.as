@@ -53,15 +53,9 @@ package
 			_playerAnim.scaleX = 0.2;
 			_playerAnim.scaleY = 0.2;
 			addChild(_playerAnim);
-			
-			//Lives related
-			
+						
 			//Starting lives
-			playerLiveStart();
-			//playerMovement(KeyboardEvent);
-			trace(playerLives + " Player");
-			
-			
+			playerLiveStart();			
 		}
 
 		private function onClick(e:MouseEvent):void 
@@ -70,13 +64,11 @@ package
 			{
 				if (!contains(_attack))
 				{
-					trace(1);
 					_attacking = true; 
 				} 
 			}
 			else 
 			{
-				trace(2);
 				_attacking = true; 
 			}
 		}
@@ -92,7 +84,6 @@ package
 		{
 			if (_attacking == true)
 			{
-				
 				shoot();
 				_attacking = false;
 			}
@@ -177,7 +168,6 @@ package
 			stage.removeEventListener(KeyboardEvent.KEY_DOWN, playerControll);
 			stage.removeEventListener(KeyboardEvent.KEY_UP, onKeyUp);
 			stage.removeEventListener(MouseEvent.MOUSE_DOWN, onClick);
-
 		}
 	}
 }
