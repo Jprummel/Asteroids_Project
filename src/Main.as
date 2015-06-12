@@ -28,6 +28,7 @@ package
 		{
 			
 			removeEventListener(Event.ADDED_TO_STAGE, init);
+			addEventListener(Event.ENTER_FRAME, update);
 			// entry point	
 			_startScreen = new StartScreen();
 			_game = new Game();
@@ -43,6 +44,20 @@ package
 			_endScreen.addEventListener(EndScreen.RETRY, backToMenuFromEnd);
 			_credits.addEventListener(CreditsPage.RETURN, backToMenuFromCredits);
 			_helpPage.addEventListener(HelpPage.RETURN, backToMenuFromHelp);
+		}
+		
+		private function update(e:Event):void 
+		{
+			if (_game.canShake() >= 0)
+			{
+				_game.x = (Math.random() * _game.dropTheBass) - _game.dropTheBass / 2;
+				_game.y = (Math.random() * _game.dropTheBass) - _game.dropTheBass / 2;
+			}
+			else
+			{
+				_game.x = 0;
+				_game.y = 0;
+			}
 		}
 
 		private function endScreen(e:Event):void 
@@ -73,6 +88,7 @@ package
 			_soundManager.ButtonClick();
 			_soundManager.AmbientSound();
 			_soundManager.EnemyWalking();
+			removeChild(_startScreen);
 		}
 		
 		//Back to menu buttons
@@ -80,6 +96,7 @@ package
 		private function backToMenuFromEnd(e:Event):void 
 		{
 			init();
+			_soundManager.ButtonClick();
 		}
 		
 		private function backToMenuFromHelp(e:Event):void 

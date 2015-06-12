@@ -29,6 +29,8 @@ package
 		private var _endScreen		:EndScreen;
 		//Audio
 		private var _soundManager	:SoundManager;
+		//Shakez
+		public var dropTheBass:int;
 		//UI & BG
 		private var _score			:ScoreManager;
 		private var _liveText		:TextField;
@@ -82,7 +84,10 @@ package
 		{
 			_liveText.text = "Lives: " + _player.playerLives.toString();
 			
-			
+			if (dropTheBass >= 0)
+			{
+				dropTheBass--;
+			}
 			
 			var enemyYellGenerator:Number = Math.random() * 1;
 			for (var i:int = _enemies.length - 1; i >= 0; i--)
@@ -95,7 +100,10 @@ package
 				{
 					trace("Player got hit");
 					_soundManager.NestHit();
+					_soundManager.PlayerRoar();
 					removeChild(_enemies[i]);
+					
+					dropTheBass = 30;
 					
 					_enemies.splice(i, 1);
 					_player.playerLives = _player.playerLives - 1;
@@ -126,6 +134,11 @@ package
 					}
 				}
 			}			
+		}
+		
+		public function canShake():int
+		{
+			return dropTheBass;
 		}
 		
 		public function endGame():void 

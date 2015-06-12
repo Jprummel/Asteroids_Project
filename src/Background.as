@@ -17,8 +17,8 @@ package
 			//Add Background
 			bgImage = new backgroundImage;
 			bgImage.x = 0;
-			bgImage.width = 800;
-			bgImage.height = 800;
+			bgImage.width = 815;
+			bgImage.height = 815;
 			addChild(bgImage);
 		}
 	}

@@ -25,6 +25,8 @@ package
 		//Game Sound Effects
 		private var nestReq				:URLRequest = new URLRequest("http://17722.hosts.ma-cloud.nl/gameMusic/NestHit.mp3");//Nest hit / Egg Crack sound
 		private var nestSound			:Sound;
+		private var playerRoarReq		:URLRequest = new URLRequest("http://17722.hosts.ma-cloud.nl/gameMusic/PlayerRoar.mp3");//Player Roar
+		private var playerRoarSound		:Sound;		
 		private var enemyDiesReq		:URLRequest = new URLRequest("http://17722.hosts.ma-cloud.nl/gameMusic/EnemyDies.mp3");//Enemy dies sound
 		private var enemyDiesSound		:Sound;
 		private var enemyWalkingReq		:URLRequest = new URLRequest("http://17722.hosts.ma-cloud.nl/gameMusic/EnemyWalking.mp3");//Enemy dies sound
@@ -42,6 +44,7 @@ package
 			enemyWalkingSound 	= new Sound(enemyWalkingReq);
 			enemyDiesSound 		= new Sound(enemyDiesReq);
 			nestSound			= new Sound(nestReq);
+			playerRoarSound		= new Sound(playerRoarReq);
 			fireSound 			= new Sound(fireReq);
 			clickSound 			= new Sound(clickReq);
 			addEventListener(Event.ADDED_TO_STAGE, init);
@@ -93,6 +96,11 @@ package
 		{
 			fireSound.play();
 		}		
+		
+		public function PlayerRoar():void
+		{
+			playerRoarSound.play();
+		}
 		
 		public function NestHit():void
 		{
